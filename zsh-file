@@ -1,4 +1,5 @@
-# Luke's config for the Zoomer Shell
+# Zoomer Shell
+# Edited by Oi*
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -6,7 +7,7 @@ autoload -U colors && colors
 if [[ $EUID -ne 0 ]]; then
 	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 else
-	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} ☠️ %b "
+	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} ☠️ %b "
 fi
 
 # History in cache directory:
