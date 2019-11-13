@@ -1,4 +1,1 @@
-
-
-
-ZSH CONFIG FIL
+ZSH Config File by Oi*
