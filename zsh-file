@@ -32,9 +32,12 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'k' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Bindo to backward/forward words
+# Bind to backward/forward words
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
+
+# Bind to reverse search
+bindkey '^R' history-incremental-search-backward
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
