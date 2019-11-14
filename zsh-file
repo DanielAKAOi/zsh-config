@@ -1,5 +1,4 @@
-# Zoomer Shell
-# Edited by Oi*
+# Luke's config for the Zoomer Shell
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -13,7 +12,7 @@ fi
 # History in cache directory:
 HISTSIZE=1000000000000000000
 SAVEHIST=1000000000000000000
-HISTFILE=~/.cache/zsh/history
+HISTFILE=~/.bash_history
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -32,6 +31,10 @@ bindkey -M menuselect 'j' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'k' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
+
+# Bindo to backward/forward words
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -78,3 +81,7 @@ bindkey '^e' edit-command-line
 # Load zsh-syntax-highlighting 
 # [https://github.com/zsh-users/zsh-syntax-highlighting] 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+# Load /usr/share/zsh/plugins/zsh-autosuggestions
+# [https://github.com/zsh-users/zsh-autosuggestions]  
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
