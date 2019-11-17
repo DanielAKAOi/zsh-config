@@ -1,1 +1,1 @@
-ZSH Config File by Oi*
+ZSH and Aliases Configuration files by Oi*
