@@ -1,1 +1,60 @@
-Commands_aliases
+## Personal aliases ####
+ 
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto '
+    alias fgrep='fgrep --color=auto '
+    alias egrep='egrep --color=auto '
+fi
+
+# some more ls aliases
+alias l='ls -ClF'
+alias ll='ls -lh'
+alias la='ls -lha'
+#alias em='emacs -nw'
+alias dd='dd status=progress'
+alias _='sudo'
+alias _i='sudo -i'
+
+
+### ALIAS DIR ###
+alias _desktop='cd $HOME/Desktop'
+alias _downloads='cd $HOME/Downloads'
+alias _documents='cd $HOME/Documents'
+alias _hackthebox='cd $HOME/HTB'
+alias _pentest='cd $HOME/Pentest'
+alias _tools='cd $HOME/tool'
+
+### ALIAS COMMANDS ###
+alias dex2jar='d2j-dex2jar'
+
+### FUNCTIONS ####
+
+#CRT_RECON
+function _crt-recon (){ 
+	curl -s https://crt.sh/?q=%25."$1" | grep TD | grep "$1" | sed -e 's/<TD>//g' -e 's/<\/TD>//g' | egrep -v '(<TD class)' | sort -u 
+	}
+
+#Cr1m3Fl4r3
+function _crimeflare (){
+	curl -k -s 'http://www.crimeflare.org:82/cgi-bin/cfsearch.cgi' --data cfS=$1 --compressed | grep -A 1 '<BR>A direct-connect IP address was found:' | grep -v IP|  awk '{print $3}'
+}
+
+#GOBUSTER_URL
+function _gobuster_url (){
+	gobuster dir -k -e -u "$1" -w /usr/share/dirb/wordlists/"$2" -l -t $3
+}
+
+#GOBUSTER_DNS
+function _gobuster_dns (){
+	gobuster dns -d $1 -i -w $HOME/Tools/Recon/dnsrecon/subdomains-top1mil.txt
+}
+
+#SSH_LOGIN
+function _ssh_login (){
+	ssh -t $1@$2 'unset HISTFILE; exec $SHELL'
+}
