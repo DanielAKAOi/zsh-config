@@ -1,5 +1,6 @@
 ## Personal aliases ####
  
+
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
@@ -36,10 +37,11 @@ alias dex2jar='d2j-dex2jar'
 
 #CRT_RECON
 function _crt-recon (){ 
-	curl -s https://crt.sh/?q=%25."$1" | grep TD | grep "$1" | sed -e 's/<TD>//g' -e 's/<\/TD>//g' | egrep -v '(<TD class)' | sort -u 
+#	curl -s https://crt.sh/?q=%25."$1" | grep TD | grep "$1" | sed -e 's/<TD>//g' -e 's/<\/TD>//g' | egrep -v '(<TD class)' | sort -u
+	curl -s 'https://crt.sh/?q=%25'.$1 | grep TD | grep -i $1 | sed -e 's/<TD>//g' -e 's/<\/TD>//g' | egrep -v '(<TD class)' | sort -u
 	}
 
-#Cr1m3Fl4r3
+#Cr1m3Fl4r
 function _crimeflare (){
 	curl -k -s 'http://www.crimeflare.org:82/cgi-bin/cfsearch.cgi' --data cfS=$1 --compressed | grep -A 1 '<BR>A direct-connect IP address was found:' | grep -v IP|  awk '{print $3}'
 }
