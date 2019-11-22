@@ -1,4 +1,11 @@
-# Luke's config for the Zoomer Shell
+########################################################
+### _________  _   _   _              ___  _        ####
+###|__  / ___|| | | | | |__  _   _   / _ \(_)_/\__  ####
+###  / /\___ \| |_| | | '_ \| | | | | | | | \    /  ####
+### / /_ ___) |  _  | | |_) | |_| | | |_| | /_  _\  ####
+###/____|____/|_| |_| |_.__/ \__, |  \___/|_| \/    ####
+###                          |___/  		    ####
+########################################################
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -6,13 +13,17 @@ autoload -U colors && colors
 if [[ $EUID -ne 0 ]]; then
 	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 else
-	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} ☠️ %b "
+	PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[red]%}@%{$fg[cyan]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%} 💀%b "
 fi
 
 # History in cache directory:
-HISTSIZE=1000000000000000000
-SAVEHIST=1000000000000000000
+HISTSIZE=100000000000000000000000000
+SAVEHIST=100000000000000000000000000
 HISTFILE=~/.bash_history
+
+# Export
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/root/.local/bin:/snap/bin:/home/skywalker/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games
+
 
 # Basic auto/tab complete:
 autoload -U compinit
